@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Slinkio</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{BASE_TAG}}
+
+    <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/bookmarkr.css">
+  </head>
+  <body>
+    <script>
+      window.SlinkioENV = {{ENV}};
+    </script>
+    <script src="assets/slinkio.js"></script>
+    <script>
+      window.Slinkio = require('slinkio/app')['default'].create(SlinkioENV.APP);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+/*
+	Utility Classes
+*/
+
+.fit-to-parent {
+	.square(100%);
+	
+	&.absolute {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+}
+
+.logo {
+	&.full {
+		.at2x('images/bookmarkr_logo_full.png', contain, null, true);
+		background-position: center;
+		background-repeat: no-repeat;
+		width: 752px;
+		height: 164px;
+	}
+	&.fit {
+		width: 100% !important;
+		margin: 0 auto;
+	}
+}

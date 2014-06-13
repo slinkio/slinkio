@@ -1,0 +1,65 @@
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+.button-variant(@color; @background; @border) {
+  border-radius: 3px;
+  color: @color;
+  background: @background;
+  border-color: @border;
+  font-weight: 100;
+  transition: background-color ease-in-out .15s, border-color ease-in-out .15s;
+  border-bottom: 3px solid darken(@border, 10%);
+  .box-shadow(~"0 1px 4px rgba(255, 255, 255, 0.4) inset");
+
+  &.btn-o {
+    color: @background;
+    background: none;
+    border-color: @border;
+    border: 1px solid;
+  }
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+    color: @color;
+    background-color: darken(@background, 10%);
+    border-color: darken(@border, 10%);
+
+    &.btn-o {
+      background-color: @background;
+    }
+  }
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: @background;
+      border-color: @border;
+    }
+  }
+
+  .badge {
+    color: @background;
+    background-color: @color;
+  }
+}
+
+// Button sizes
+.button-size(@padding-vertical; @padding-horizontal; @font-size; @line-height) {
+  padding: @padding-vertical @padding-horizontal;
+  font-size: @font-size;
+  line-height: @line-height;
+}
