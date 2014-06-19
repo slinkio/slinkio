@@ -1,4 +1,4 @@
-# Slinkio Inital Definition
+# Slinkio Initial Definition
 
 ## Installation
 
