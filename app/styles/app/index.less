@@ -3,15 +3,26 @@
 */
 
 #index-body-wrapper {
+	.square(100%);
+	overflow: scroll;
+	padding: 50px;
+	background: rgba(255, 255, 255, 0.6);
+}
+
+#index-background {
 	.at2x('images/home_landscape.jpg', cover, null, true);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
-	
-	#inner-index-container {
-		.square(100%);
-		overflow: scroll;
-		padding: 50px;
-		background: rgba(255, 255, 255, 0.6);
-	}
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+	opacity: 0.4;
+}
+// Remove below
+body {
+	background: #CCC;
 }

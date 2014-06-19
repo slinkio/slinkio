@@ -16,6 +16,19 @@
   margin-left:  (@gutter / -2);
   margin-right: (@gutter / -2);
   &:extend(.clearfix all);
+  &.flexed {
+    -moz-column-width: 18em;
+    -webkit-column-width: 18em;
+    -moz-column-gap: 1em;
+    -webkit-column-gap:1em;
+    column-width: 18em;
+    column-gap: 1em;
+
+    .flex-item {
+       display: inline-block;
+       width:  100%; 
+    }
+  }
 }
 
 // Generate the extra small columns

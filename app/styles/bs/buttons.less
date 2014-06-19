@@ -6,6 +6,8 @@
 // Base styles
 // --------------------------------------------------
 
+:focus {outline:none;} ::-moz-focus-inner {border:0;}
+
 .btn {
   display: inline-block;
   margin-bottom: 0; // For input.btn
@@ -19,14 +21,6 @@
   
   .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base);
   .user-select(none);
-
-  &,
-  &:active,
-  &.active {
-    &:focus {
-      .tab-focus();
-    }
-  }
 
   &:hover,
   &:focus {

@@ -15,15 +15,27 @@
 }
 
 .logo {
-	&.full {
-		.at2x('images/bookmarkr_logo_full.png', contain, null, true);
+	&.logo-full {
+		.at2x('images/slinkio_logo_full.png', contain, null, true);
 		background-position: center;
 		background-repeat: no-repeat;
-		width: 752px;
-		height: 164px;
+		background-size: contain;
+		width: 750px;
+		height: 304px;
 	}
-	&.fit {
+	&.logo-small {
+		.at2x('images/slinkio_logo_small.png', contain, null, true);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		width: 148px;
+		height: 60px;
+	}
+	&.logo-fit {
 		width: 100% !important;
 		margin: 0 auto;
+	}
+	&.logo-left {
+		background-position: left !important;
 	}
 }
