@@ -9,6 +9,6 @@ var App = Ember.Application.extend({
 	Resolver: Resolver
 });
 
-loadInitializers(App, 'bookmarkr');
+loadInitializers(App, 'slinkio');
 
 export default App;
