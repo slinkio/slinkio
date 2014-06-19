@@ -2,7 +2,8 @@
   "predef": {
     "document": true,
     "window": true,
-    "BookmarkrENV": true
+    "SlinkioENV": true,
+    "$": true
   },
   "browser" : true,
   "boss" : true,
