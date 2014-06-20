@@ -2,7 +2,7 @@
 	Navigation Styles
 */
 
-@menu-transition: ~"all cubic-bezier(1, .49, .21, 1) 0.5s";
+@menu-transition: ~"all ease-in 0.5s";
 @side-menu-item-transition: ~"all ease-in-out 0.2s";
 
 nav.top-nav {
@@ -20,6 +20,14 @@ nav.top-nav {
 	
 	&.show-side-menu {
 		margin: 0 20% 0 -20%;
+		
+		@media (max-width: @screen-md-min) {
+			margin: 0 40% 0 -40%;
+		}
+
+		@media (max-width: @screen-sm-min) {
+			margin: 0 75% 0 -75%;
+		}
 	}
 }
 
@@ -35,6 +43,16 @@ nav.top-nav {
 	height: 100%;
 	.transition(@menu-transition);
 	
+	@media (max-width: @screen-md-min) {
+		right: -40%;
+		width: 40%;
+	}
+
+	@media (max-width: @screen-sm-min) {
+		right: -75%;
+		width: 75%;
+	}
+
 	&.show {
 		right: 0;
 		box-shadow: 10px 0 20px -10px rgba(0, 0, 0, 1) inset;
@@ -52,7 +70,7 @@ nav.top-nav {
 
 			li {
 				width: 100%;
-				
+
 				&:last-child {
 					a {
 						border: none;
@@ -67,6 +85,10 @@ nav.top-nav {
 					.transition(@side-menu-item-transition);		
 				}
 			}
+		}
+
+		.side-menu-account {
+
 		}
 	}
 }
