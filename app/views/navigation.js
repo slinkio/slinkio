@@ -11,6 +11,7 @@ var NavigationView = Ember.View.extend({
 	initialize: function () {
 		// Initialize the view
 		var $header = this.$().parent(),
+			$sideMenu = this.get('childViews').findBy('viewName', 'sideMenu').$(),
 			$container = $(window),
 			height = $header.height(),
 			previous = {
@@ -18,23 +19,29 @@ var NavigationView = Ember.View.extend({
 				translate: 0
 			},
 			view = this,
-			offset, delta, translate;
+			offset, delta, translate, sideOffset;
 		// Hack backface for 3D transform
 		$header.css("backface-visibility", "hidden");
 		$container.css("transform", "translateZ(0)");
 		// Listen for the scroll
 		$container.scroll(function () {
+			offset = $container.scrollTop();
+			sideOffset = (offset < 0) ? 0 : offset;
+
+			$sideMenu.css("top", sideOffset + "px");
+			
 			if(view.get('controller.showingSideMenu')) {
 				return $header.css("transform", "");
 			}
-			offset = $container.scrollTop();
+			
 			// Calculate delta
 			delta  = offset - previous.offset;
 			translate = delta > 0 ? Math.max(-height, previous.translate - delta) : Math.min(0, previous.translate - delta);
 			if(offset < 0) {
 				translate = 0;
 			}
-			$header.css("transform", "translate(0,"+ (offset+translate) +"px)");
+			console.log('side menuing');
+			$header.css("transform", "translate(0, "+ (offset+translate) +"px)");
 			previous = {
 				offset: offset,
 				translate: translate

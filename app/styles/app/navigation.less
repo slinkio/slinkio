@@ -2,15 +2,15 @@
 	Navigation Styles
 */
 
-@menu-transition: ~"all ease-in 0.5s";
+@menu-transition: ~"transform ease-in 0.4s";
 @side-menu-item-transition: ~"all ease-in-out 0.2s";
 
 nav.top-nav {
 	background: rgba(255, 255, 255, 0.8);
-	padding: 5px;
+	padding: 5px 5px 0 5px;
 	
 	.row {
-		margin: 0 !important;
+		margin: 15px 0 !important;
 	}
 }
 
@@ -19,42 +19,42 @@ nav.top-nav {
 	.transition(@menu-transition);
 	
 	&.show-side-menu {
-		margin: 0 20% 0 -20%;
+		transform: translate3d(-20%, 0, 0);
 		
 		@media (max-width: @screen-md-min) {
-			margin: 0 40% 0 -40%;
+			transform: translate3d(-40%, 0, 0);
 		}
 
 		@media (max-width: @screen-sm-min) {
-			margin: 0 75% 0 -75%;
+			transform: translate3d(-75%, 0, 0);
 		}
 	}
 }
 
 .side-menu {
-	right: -20%;
+	transform: translate3d(120%, 0, 0) scale(1.4);
 	background-color: @brand-default;
 	z-index: 999;
 	display: inline;
 	position: fixed;
 	top: 0;
+	right: 0;
 	bottom: 0;
 	width: 20%;
 	height: 100%;
+	overflow: hidden;
 	.transition(@menu-transition);
 	
 	@media (max-width: @screen-md-min) {
-		right: -40%;
 		width: 40%;
 	}
 
 	@media (max-width: @screen-sm-min) {
-		right: -75%;
 		width: 75%;
 	}
 
 	&.show {
-		right: 0;
+		transform: translate3d(100%, 0, 0);
 		box-shadow: 10px 0 20px -10px rgba(0, 0, 0, 1) inset;
 	}
 
@@ -62,7 +62,7 @@ nav.top-nav {
 		color: white;
 		padding: 10px;
 
-		ul {
+		ul.side-menu-links {
 			list-style: none;
 			width: auto;
 			margin: 0 -10px;
@@ -86,9 +86,48 @@ nav.top-nav {
 				}
 			}
 		}
+	}
+}
 
-		.side-menu-account {
+.link-bar {
+	background-color: fade(@brand-primary, 95%);
+	margin: 0 -5px;
+	text-align: center;
 
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		li {
+			padding: 2px 15px;
+			font-size: 16px;
+			font-weight: 300;
+			-webkit-font-smoothing: antialiased;
+			display: inline-block;
+			margin: 0 -2px;
+
+			/* May not need this
+			@li-border: ~"solid 1px rgba(0, 0, 0, 0.1)";
+
+			border-left: @li-border;
+			*/
+
+			a {
+				color: lighten(@brand-default, 2%);
+				text-decoration: none;
+				transition: all ease-in-out 0.3s;
+
+				&:hover {
+					color: white;
+				}
+			}
+
+			/* May not need this
+			&:first-of-type {
+				border-left: none;
+			}
+			*/
 		}
 	}
 }
@@ -115,5 +154,9 @@ nav.top-nav {
 			padding-right: 1px;
 			content: "\f101";
 		}
+	}
+
+	&.active {
+		background-color: fade(@brand-primary, 40%);
 	}
 }

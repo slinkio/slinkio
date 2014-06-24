@@ -3,7 +3,7 @@
 		<div class="logo logo-small logo-fit logo-left"></div>
 	</div>
 	<div class="col-xs-6 right-col text-right">
-			<button class="btn btn-default btn-lg btn-o hidden-xs" {{action "toggleSideMenu"}}>
+			<button class="btn btn-primary btn-lg btn-o hidden-xs" {{action "toggleSideMenu"}}>
 				{{#if showingSideMenu}}Hide Menu <i class="fa fa-caret-square-o-right"></i>{{else}}Menu <i class="fa fa-bars fa-fw"></i>{{/if}}
 			</button>
 			{{#unless showingSideMenu}}
@@ -14,3 +14,4 @@
 	</div>
 </div>
 {{render 'side-menu'}}
+{{render 'link-bar'}}
