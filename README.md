@@ -1,21 +1,5 @@
-# Slinkio Initial Definition
+# Slinkio [![Build Status](https://travis-ci.org/slinkio/slinkio.svg?branch=master)](https://travis-ci.org/slinkio/slinkio)
 
-## Installation
+**Slinkio** is based on organizing, integrating and being smart about your bookmarks.
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
-
-## Running
-
-* `ember server`
-* Visit your app at http://localhost:4200.
-
-## Running Tests
-
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
+We are Slinkio and our goal is *Flexible Bookmarking*.
