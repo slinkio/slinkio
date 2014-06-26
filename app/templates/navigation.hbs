@@ -3,11 +3,11 @@
 		<div class="logo logo-small logo-fit logo-left"></div>
 	</div>
 	<div class="col-xs-6 right-col text-right">
-			<button class="btn btn-primary btn-lg btn-o hidden-xs" {{action "toggleSideMenu"}}>
+			<button class="btn btn-primary btn-lg btn-o hidden-xs btn-menu" {{action "toggleSideMenu"}}>
 				{{#if showingSideMenu}}Hide Menu <i class="fa fa-caret-square-o-right"></i>{{else}}Menu <i class="fa fa-bars fa-fw"></i>{{/if}}
 			</button>
 			{{#unless showingSideMenu}}
-				<button class="btn btn-primary btn-lg visible-xs-inline-block" {{action "toggleSideMenu"}}>
+				<button class="btn btn-primary btn-lg visible-xs-inline-block btn-menu" {{action "toggleSideMenu"}}>
 					<i class="fa fa-bars fa-fw"></i>
 				</button>
 			{{/unless}}

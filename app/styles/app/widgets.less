@@ -3,6 +3,41 @@
 */
 
 .widget {
+
+	.card-container {
+		.transition(~"all ease-in-out 0.5s");
+		transform-style: preserve-3d;
+		height: 95px;
+		width: 100%;
+		position: relative;
+		
+		.card {
+			padding: 15px;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			margin: 0 !important;
+			.backface-visibility(hidden);
+			
+			&.card-back, &.card-front {
+				.transition(~"all ease-in-out 0.5s");
+			}
+			
+			&.card-back {
+				.transform-prefix(~"rotateX(540deg)");
+			}
+		}
+
+		&:hover {
+			.card-back {
+				.transform-prefix(~"rotateX(0deg)");
+			}
+
+			.card-front {
+				.transform-prefix(~"rotateX(540deg)");
+			}
+		}
+	}
 	
 	&.side-menu-widget {
 		color: white;
@@ -33,66 +68,142 @@
 				}
 			}
 		}
+		.card-front {
+			background-color: rgba(0, 0, 0, 0.4);
+			z-index: 2;
 
-		.card-container {
-			transition: 0.6s;
-			transform-style: preserve-3d;
-			height: 95px;
-			width: 100%;
-			position: relative;
-			
-			.card {
-				padding: 15px;
-				backface-visibility: hidden;
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				margin: 0 !important;
-			}
-			
-			.card-front {
-				background-color: rgba(0,0,0,0.4);
-				z-index: 2;
+			.card-left {
+				
+				.profile-picture {
+					border-radius: 32px;
+					overflow: hidden;
+					float: left;
+				}
+				
+				.profile-info {
+					height: 100%;
+					width: 100%;
+					margin-left: 64px;
+					padding: 2px 10px;
 
-				.card-left {
-					
-					.profile-picture {
-						border-radius: 32px;
-						overflow: hidden;
-						float: left;
+					.profile-name {
+						font-weight: 300;
 					}
-					
-					.profile-info {
-						height: 100%;
-						width: 100%;
-						margin-left: 64px;
-						padding: 2px 10px;
 
-						.profile-name {
-							font-weight: 300;
-						}
-
-						.profile-stats {
-							font-weight: 900;
-							font-size: 12px;
-						}
+					.profile-stats {
+						font-weight: 900;
+						font-size: 12px;
 					}
 				}
 			}
+		}
 
-			.card-back {
-				transform: rotateX(180deg);
-				background-color: @brand-primary;
-				padding: 10px !important;
+		.card-back {
+			background-color: @brand-primary;
+			padding: 10px !important;
 
-				.col-xs-6 {
-					padding: 0;
-				}
-			}
-
-			&:hover {
-				transform: rotateX(180deg);
+			.col-xs-6 {
+				padding: 0;
 			}
 		}
 	}
+
+	&.weather-widget {
+		perspective: 600px;
+
+		.card-front {
+			background-color: rgba(255, 255, 255, 0.75);
+			z-index: 2;
+
+			.weather-item {
+				display: none;
+
+				&.shown {
+					display: block;
+				}
+			}
+
+			.card-left {
+
+			}
+		}
+
+		.card-back {
+			background-color: fade(@brand-primary, 85%);
+			padding: 10px !important;
+			
+			.location-info {
+				position: absolute;
+				top: 0;
+				right: 84px;
+				bottom: 0;
+				left: 84px;
+				text-align: center !important;
+				z-index: 99;
+
+				h3 {
+					margin: 0;
+					color: white;
+					line-height: .7;
+					padding: 10px 0 15px 0;
+
+					small {
+						color: darken(white, 5%);
+						font-size: 50%;
+						font-weight: 100;
+					}
+				}
+
+				a {
+					padding: 2px;
+					display: block;
+					color: white;
+					font-weight: 100;
+					width: 100%;
+					.weather-widget-transition();
+
+					&:hover {
+						text-decoration: none;
+						background-color: rgba(0, 0, 0, 0.6);
+					}
+				}
+			}
+
+			.location-controls {
+				position: absolute;
+				top: 15px;
+				left: 0;
+				bottom: 0;
+				.square(100%);
+
+				.prev-location, .next-location {
+					position: absolute;
+					cursor: pointer;
+					background: none;
+					border: none;
+					.weather-widget-transition();
+
+					&:hover {
+						color: white;
+					}
+
+					&:disabled {
+						color: darken(white, 20%);
+					}
+				}
+
+				.prev-location {
+					left: 0;
+				}
+
+				.next-location {
+					right: 0;
+				}
+			}
+		}
+	}
+}
+
+.weather-widget-transition() {
+	.transition(~"all ease-in-out 0.3s");
 }

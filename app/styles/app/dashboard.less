@@ -1,0 +1,61 @@
+/*
+	Dashboard Styles
+*/
+
+@pane-color: rgba(255, 255, 255, 0.75);
+
+.dash {
+	.square(100%);
+	//TODO: Pull the user-set background below into an inline style, calculated from dash controller
+	background: url('images/test/test_dashboard_image.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	.dash-top {
+		height: 95px;
+
+		h2 {
+			color: @brand-default;
+			font-weight: 300;
+			padding: 10px 20px;
+			margin: 19px 0;
+		}
+
+		& > div {
+			padding: 0 !important;
+			height: 100%;
+			float: left;
+		}
+
+		.split-left {
+			.color-pane();
+			width: 80%;
+			@media (max-width: @screen-lg-min) {
+				width: 66.66666667%
+			}
+			
+			.custom-row();
+		}
+		
+		.split-right {
+			width: 20%;
+			
+			@media (max-width: @screen-lg-min) {
+				width: 33.33333333%
+			}
+
+			.custom-row();
+		}
+	}
+}
+
+.color-pane() {
+	background-color: @pane-color;
+}
+
+.custom-row() {
+	@media (max-width: @screen-sm-min) {
+		width: 100%
+	}
+}

@@ -2,8 +2,13 @@
 	Navigation Styles
 */
 
-@menu-transition: ~"transform ease-in 0.4s";
+@menu-transition: ~"all ease-in 0.4s";
 @side-menu-item-transition: ~"all ease-in-out 0.2s";
+
+.top-navigation-holster {
+	position: relative;
+	z-index: 99;
+}
 
 nav.top-nav {
 	background: rgba(255, 255, 255, 0.8);
@@ -19,20 +24,20 @@ nav.top-nav {
 	.transition(@menu-transition);
 	
 	&.show-side-menu {
-		transform: translate3d(-20%, 0, 0);
+		.transform-prefix(~"translate3d(-20%, 0, 0)");
 		
 		@media (max-width: @screen-md-min) {
-			transform: translate3d(-40%, 0, 0);
+			.transform-prefix(~"translate3d(-40%, 0, 0)");
 		}
 
 		@media (max-width: @screen-sm-min) {
-			transform: translate3d(-75%, 0, 0);
+			.transform-prefix(~"translate3d(-75%, 0, 0)");
 		}
 	}
 }
 
 .side-menu {
-	transform: translate3d(120%, 0, 0) scale(1.4);
+	.transform-prefix(~"translate3d(120%, 0, 0) scale(1.4)");
 	background-color: @brand-default;
 	z-index: 999;
 	display: inline;
@@ -54,7 +59,7 @@ nav.top-nav {
 	}
 
 	&.show {
-		transform: translate3d(100%, 0, 0);
+		.transform-prefix(~"translate3d(100%, 0, 0)");
 		box-shadow: 10px 0 20px -10px rgba(0, 0, 0, 1) inset;
 	}
 
@@ -90,7 +95,7 @@ nav.top-nav {
 }
 
 .link-bar {
-	background-color: fade(@brand-primary, 95%);
+	background-color: fade(@brand-primary, 85%);
 	margin: 0 -5px;
 	text-align: center;
 

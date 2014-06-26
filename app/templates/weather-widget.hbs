@@ -1,0 +1,33 @@
+<div class="card-container">
+	<div class="row card card-front">
+		<div class="col-md-12">
+			{{#each location in weatherData itemController="weather-object"}}
+				<div {{bind-attr class=":weather-item shown"}}>
+					<img {{bind-attr src=icon}} {{bind-attr alt=weatherCondition.description}} />
+					<div class="weather-data">
+						<span class="temp">{{temperature}}</span><span class="degree">&deg;</span><span class="unit">{{capitalize-all temperature_pref}}</span>
+					</div>
+				</div>
+			{{else}}
+				No Locations...
+			{{/each}}
+		</div>
+	</div>
+	<div class="card card-back">
+		<div class="location-info">
+			<h3>
+				{{currentLocation}}<br />
+				<small>Current Location</small>
+			</h3>
+			<a href="#"><i class="fa fa-plus fa-fw"></i>Add Location...</a>
+		</div>
+		<div class="location-controls">
+			<button class="prev-location" title="Previous Location" {{action "changeLocation"}} {{bind-attr disabled=onFirstLocation}}>
+				<i class="fa fa-angle-left fa-fw fa-4x"></i>
+			</button>
+			<button class="next-location" title="Next Location" {{action "changeLocation" true}} {{bind-attr disabled=onLastLocation}}>
+				<i class="fa fa-angle-right fa-fw fa-4x"></i>
+			</button>
+		</div>
+	</div>
+</div>

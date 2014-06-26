@@ -15,7 +15,9 @@
   <body>
     <script>
       window.SlinkioENV = {{ENV}};
+      window.EmberENV = window.SlinkioENV.EmberENV;
     </script>
+    <script src="assets/vendor.js"></script>
     <script src="assets/slinkio.js"></script>
     <script>
       window.Slinkio = require('slinkio/app')['default'].create(SlinkioENV.APP);

@@ -40,8 +40,8 @@ var NavigationView = Ember.View.extend({
 			if(offset < 0) {
 				translate = 0;
 			}
-			console.log('side menuing');
-			$header.css("transform", "translate(0, "+ (offset+translate) +"px)");
+			var compiledDelta = ( ( offset + translate ) < 0 ) ? 0 : offset + translate;
+			$header.css("transform", "translate(0, "+ compiledDelta +"px)");
 			previous = {
 				offset: offset,
 				translate: translate
