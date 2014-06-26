@@ -34,14 +34,16 @@
     <div id="qunit-fixture"></div>
 
     <script>
-      window.BookmarkrENV = {{ENV}};
+      window.SlinkioENV = {{ENV}};
+      window.EmberENV = window.SlinkioENV.EmberENV;
     </script>
     <script src="assets/qunit.js"></script>
     <script src="assets/qunit-notifications.js"></script>
+    <script src="assets/vendor.js"></script>
     <script src="assets/slinkio.js"></script>
     <script src="testem.js"></script>
     <script>
-      require('bookmarkr/tests/test-helper');
+      require('slinkio/tests/test-helper');
     </script>
     <script src="assets/test-loader.js"></script>
   </body>

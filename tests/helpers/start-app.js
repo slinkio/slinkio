@@ -4,14 +4,14 @@ var Application = require('slinkio/app')['default'];
 var Router = require('slinkio/router')['default'];
 
 export default function startApp(attrs) {
-  var App,
+  var App;
 
-  attributes = Ember.merge({
+  var attributes = Ember.merge({
     // useful Test defaults
     rootElement: '#ember-testing',
-    LOG_ACTIVE_GENERATION: false,
+    LOG_ACTIVE_GENERATION:false,
     LOG_VIEW_LOOKUPS: false
-  }, attrs); // but you can override
+  }, attrs); // but you can override;
 
   Router.reopen({
     location: 'none'
@@ -23,7 +23,7 @@ export default function startApp(attrs) {
     App.injectTestHelpers();
   });
 
-  App.reset();
+  App.reset(); // this shouldn't be needed, i want to be able to "start an app at a specific URL"
 
   return App;
 }
