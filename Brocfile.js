@@ -20,9 +20,9 @@ app.import(
     production:  'vendor/ember-data/ember-data.prod.js'
   },
   {
-    'ember-data': [
-      'default'
-    ]
+    exports: {
+      'ember-data': [ 'default' ]
+    }
   }
 );
 /* Vendor CSS */
@@ -38,13 +38,15 @@ app.import('vendor/nprogress/nprogress.js');
 // object with the list of modules as keys along with the exports of each
 // module as its value.
 app.import('vendor/ic-ajax/dist/named-amd/main.js', {
-    'ic-ajax': [
-      'default',
-      'defineFixture',
-      'lookupFixture',
-      'raw',
-      'request'
-    ]
+    exports: {
+      'ic-ajax': [
+       'default',
+        'defineFixture',
+        'lookupFixture',
+        'raw',
+        'request'
+      ]
+    }
   }
 );
 
