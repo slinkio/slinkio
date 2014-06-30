@@ -1,8 +1,5 @@
 export function percentFromRange (high, low, num) {
-	if(low < 0) {
-		num -= low;
-	}
-	return ( num / ( high - low ) ) * 100;
+	return ( ( num - low ) / ( high - low ) ) * 100;
 }
 
 export function toNearest (nearest, num, restrict, useCeil) {
