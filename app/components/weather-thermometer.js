@@ -2,18 +2,19 @@ import Ember from 'ember';
 import { percentFromRange, toNearest } from './../utils/extended-math';
 
 var WeatherThermometerComponent = Ember.Component.extend({
-	icon: function () {
-		var pref = this.get('temperature_pref'),
+	tagName: 'img',
+	classNames: [ 'weather-thermometer' ],
+	// Bind properties to view's DOM attributes
+	attributeBindings: [ 'src', 'alt' ],
 
-			// Calculate the range we will use to determine the icon based on C or F
-			range = {
-				high: (pref === "c") ? 32 : 90,
-				low: (pref === "c") ? -18 : 0
+	src: function () {
+		var range = {
+			// Set the range 0-100F in kelvin
+				high: 310.928,
+				low: 255.372
 			},
-
 			// Calculate percentage from range
 			per = percentFromRange(range.high, range.low, this.get('temperature')),
-
 			/* Determine the icon to use.
 			   Basically we are mapping the correct icon name based on
 			   the percentage we got from above. */
@@ -23,8 +24,12 @@ var WeatherThermometerComponent = Ember.Component.extend({
 			});
 
 		return "assets/images/weather-icons/dark/therm_" + icon + ".png";
+	}.property('temperature'),
 
-	}.property('temperature', 'temperature_pref')
+	// Give user a readable alt text
+	alt: function () {
+		return this.get('temperature') + "k Slinkio Thermometer";
+	}.property('temperature')
 });
 
 export default WeatherThermometerComponent;
