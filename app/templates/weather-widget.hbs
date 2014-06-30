@@ -1,17 +1,35 @@
 <div class="card-container">
-	<div class="row card card-front">
-		<div class="col-md-12">
+	<div class="card card-front">
+		<div class="big-location-text">{{currentLocation}}</div>
 			{{#each location in weatherData itemController="weather-object"}}
 				<div {{bind-attr class=":weather-item shown"}}>
-					<img {{bind-attr src=icon}} {{bind-attr alt=weatherCondition.description}} />
+					<div class="weather-icon">
+						<img {{bind-attr src=icon}} {{bind-attr alt=weatherCondition.description}} />
+					</div>
 					<div class="weather-data">
-						<span class="temp">{{temperature}}</span><span class="degree">&deg;</span><span class="unit">{{capitalize-all temperature_pref}}</span>
+						<div class="quick-data">
+							<h2 class="weather-text">
+								{{capitalize-text weatherCondition.main true}}<br />
+								<small class="temp-text">
+									{{weather-thermometer temperature=temp.current}} <span class="temp">{{temperature-convert temp.current temperature_pref}}</span><span class="degree">&deg;</span><span class="unit">{{capitalize-text temperature_pref false true}}</span>
+								</small>
+							</h2>
+						</div>
+						<div class="detailed-data">
+							
+						</div>
 					</div>
 				</div>
+				{{#bs-modal id=location.modal_id dismissable=true title="10 Day Forecast" modal-lg=true}}
+					<div class="modal-body">
+						{{#each outlook in location.forecast itemController="weather-object"}}
+							{{outlook.temp.morn}}
+						{{/each}}
+					</div>
+				{{/bs-modal}}
 			{{else}}
 				No Locations...
 			{{/each}}
-		</div>
 	</div>
 	<div class="card card-back">
 		<div class="location-info">
@@ -19,6 +37,7 @@
 				{{currentLocation}}<br />
 				<small>Current Location</small>
 			</h3>
+			<a href="#" {{action "showModal" activeModal false 'body'}}>View 10 Day Forecast</a>
 			<a href="#"><i class="fa fa-plus fa-fw"></i>Add Location...</a>
 		</div>
 		<div class="location-controls">
