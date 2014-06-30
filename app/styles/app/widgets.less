@@ -114,6 +114,18 @@
 		.card-front {
 			background-color: rgba(255, 255, 255, 0.75);
 			z-index: 2;
+			overflow: hidden;
+
+			.big-location-text {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				font-size: 29px;
+				padding: 0;
+				line-height: 0.9;
+				color: rgba(255, 255, 255, 0.4);
+				z-index: -20;
+			}
 
 			.weather-item {
 				display: none;
@@ -121,16 +133,63 @@
 				&.shown {
 					display: block;
 				}
-			}
 
-			.card-left {
+				.weather-icon {
+					width: 15%;
+					float: left;
+					padding: 2.5px 0;
+				}
 
+				.weather-data {
+					width: 85%;
+					float: left;
+
+					.quick-data {
+						width: 50%;
+						float: left;
+
+						h2.weather-text {
+							padding: 0 !important;
+							margin: 0 !important;
+							line-height: 0.9;
+							font-size: 35px;
+
+							.temp-text {
+								@temp-sizing: 20;
+
+								position: relative;
+								color: @brand-default;
+								font-weight: 500;
+								font-size: 37px;
+								padding-left: 24px;
+
+								img {
+									position: absolute;
+									top: 6px;
+									bottom: 0;
+									left: -8px;
+									height: 80%;
+								}
+
+								span, img {
+									display: inline-block;
+								}
+							}
+						}
+					}
+
+					.detailed-data {
+						width: 50%;
+						float: left;
+					}
+				}
 			}
 		}
 
 		.card-back {
 			background-color: fade(@brand-primary, 85%);
 			padding: 10px !important;
+			overflow: hidden;
 			
 			.location-info {
 				position: absolute;
@@ -145,11 +204,12 @@
 					margin: 0;
 					color: white;
 					line-height: .7;
-					padding: 10px 0 15px 0;
+					padding: 6px 0 6px 0;
+					font-size: 20px;
 
 					small {
 						color: darken(white, 5%);
-						font-size: 50%;
+						font-size: 60%;
 						font-weight: 100;
 					}
 				}

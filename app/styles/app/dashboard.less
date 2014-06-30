@@ -30,21 +30,12 @@
 
 		.split-left {
 			.color-pane();
-			width: 80%;
-			@media (max-width: @screen-lg-min) {
-				width: 66.66666667%
-			}
-			
+			.split-media-queries("left");
 			.custom-row();
 		}
 		
 		.split-right {
-			width: 20%;
-			
-			@media (max-width: @screen-lg-min) {
-				width: 33.33333333%
-			}
-
+			.split-media-queries("right");
 			.custom-row();
 		}
 	}
@@ -55,7 +46,41 @@
 }
 
 .custom-row() {
-	@media (max-width: @screen-sm-min) {
+	@media (max-width: @screen-sm) {
 		width: 100%
+	}
+}
+
+@screen-xl: unit((@screen-lg * 1.5), px);
+
+.split-media-queries(@side)  when (@side = "right") {
+	width: 30%;
+	@media (min-width: @screen-xl) {
+		width: 20%
+	}
+	@media (min-width: @screen-lg) and (max-width: @screen-xl) {
+		width: 28%;
+	}
+	@media (min-width: @screen-md) and (max-width: @screen-lg) {
+		width: 35%;
+	}
+	@media (min-width: @screen-sm) and (max-width: @screen-md) {
+		width: 42%;
+	}
+}
+
+.split-media-queries(@side)  when (@side = "left") {
+	width: 70%;
+	@media (min-width: @screen-xl) {
+		width: 80%
+	}
+	@media (min-width: @screen-lg) and (max-width: @screen-xl) {
+		width: 72%;
+	}
+	@media (min-width: @screen-md) and (max-width: @screen-lg) {
+		width: 65%;
+	}
+	@media (min-width: @screen-sm) and (max-width: @screen-md) {
+		width: 58%;
 	}
 }
