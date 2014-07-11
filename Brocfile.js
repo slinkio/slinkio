@@ -28,11 +28,12 @@ app.import(
 /* Vendor CSS */
 app.import('vendor/fontawesome/css/font-awesome.css');
 app.import('vendor/nprogress/nprogress.css');
+app.import('vendor/gridster/dist/jquery.gridster.css');
 
 /* Vendor JS */
 app.import('vendor/bootstrap/dist/js/bootstrap.min.js');
 app.import('vendor/nprogress/nprogress.js');
-app.import('vendor/gridster/src/jquery.gridster.js');
+app.import('vendor/gridster/dist/jquery.gridster.js');
 
 // If the library that you are including contains AMD or ES6 modules that
 // you would like to import into your application please specify an
