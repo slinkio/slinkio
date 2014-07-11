@@ -32,6 +32,7 @@ app.import('vendor/nprogress/nprogress.css');
 /* Vendor JS */
 app.import('vendor/bootstrap/dist/js/bootstrap.min.js');
 app.import('vendor/nprogress/nprogress.js');
+app.import('vendor/gridster/jquery.gridster.js');
 
 // If the library that you are including contains AMD or ES6 modules that
 // you would like to import into your application please specify an
